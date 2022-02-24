@@ -1,4 +1,4 @@
-// Code source: Katarina Tretter
+// Base code source: Katarina Tretter
 
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +11,8 @@ public enum MenuState
     Game,
     Pause,
     Options,
-    Inventory
+    Inventory,
+    Camera
 }
 
 public class UIManager : MonoBehaviour
@@ -74,6 +75,13 @@ public class UIManager : MonoBehaviour
                     MenuControl(inventoryObjects, MenuState.Game);
                 }
                 break;
+            case MenuState.Camera:
+                // If ESC is pressed
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    MenuControl(gameObjects, MenuState.Game);
+                }
+                break;
             // If somehow not in Game state, Menu State, or Options state, assume it is menu and can go back to game state
             default:
                 // If ESC is pressed
@@ -101,6 +109,19 @@ public class UIManager : MonoBehaviour
             currentMenuState = menuState;
             ShowMenu(optionObjects);
         }
+        // If in pause menu already, clicked on inventory menu
+        else if (currentMenuState == MenuState.Pause && menuState == MenuState.Inventory)
+        {
+            HideMenu(pauseObjects);
+            currentMenuState = menuState;
+            ShowMenu(inventoryObjects);
+        }
+        // If in game, clicked on camera
+        else if (currentMenuState == MenuState.Game && menuState == MenuState.Camera)
+        {
+            HideMenu(gameObjects);
+            currentMenuState = menuState;
+        }
         // If in options menu, clicked back arrow
         else if (currentMenuState == MenuState.Options && menuState == MenuState.Pause)
         {
@@ -114,6 +135,12 @@ public class UIManager : MonoBehaviour
             HideMenu(inventoryObjects);
             currentMenuState = menuState;
             ShowMenu(pauseObjects);
+        }
+        // If in camera, pressed escape
+        else if (currentMenuState == MenuState.Camera && menuState == MenuState.Game)
+        {
+            currentMenuState = menuState;
+            ShowMenu(gameObjects);
         }
         // If not in menu already
         else
@@ -191,6 +218,11 @@ public class UIManager : MonoBehaviour
         else if (name == "back")
         {
             MenuControl(pauseObjects, MenuState.Pause);
+        }
+        // If clicked camera, remove game overlay
+        else if (name == "camera")
+        {
+            MenuControl(gameObjects, MenuState.Camera);
         }
     }
 
