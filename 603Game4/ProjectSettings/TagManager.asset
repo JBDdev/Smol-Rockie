@@ -8,6 +8,9 @@ TagManager:
   - showOnPause
   - showOnOptions
   - showOnInventory
+  - rareRock
+  - rock
+  - hat
   layers:
   - Default
   - TransparentFX
@@ -44,4 +47,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Hat
+    uniqueID: 658697345
+    locked: 0
+  - name: Rock
+    uniqueID: 1234282241
     locked: 0
