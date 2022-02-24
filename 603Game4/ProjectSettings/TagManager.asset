@@ -8,6 +8,8 @@ TagManager:
   - showOnPause
   - showOnOptions
   - showOnInventory
+  - showOnRates
+  - showOnHistory
   layers:
   - Default
   - TransparentFX

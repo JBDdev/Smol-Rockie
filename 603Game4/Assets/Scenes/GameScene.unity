@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Camera Mode
+  m_Text: Camera
 --- !u!222 &136934623
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 978119079}
   - component: {fileID: 978119078}
   - component: {fileID: 978119077}
+  - component: {fileID: 978119081}
   m_Layer: 5
   m_Name: CameraButton
   m_TagString: showOnGame
@@ -370,9 +371,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 978119077}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OnCamera
+      - m_Target: {fileID: 978119081}
+        m_TargetAssemblyTypeName: Screenshot, Assembly-CSharp
+        m_MethodName: onScreenshot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -420,6 +421,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978119075}
   m_CullTransparentMesh: 1
+--- !u!114 &978119081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978119075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f900796e60199455a8db4b407f61d348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1126645602
 GameObject:
   m_ObjectHideFlags: 0

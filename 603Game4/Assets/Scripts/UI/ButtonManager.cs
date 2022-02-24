@@ -43,7 +43,7 @@ public class ButtonManager : MonoBehaviour
     public void OnCredits()
     {
         Debug.Log("Clicked Credits");
-       // SceneManager.LoadScene("CreditsMenu");
+        SceneManager.LoadScene("CreditsMenu");
     }
 
     public void OnMainMenu()
@@ -61,19 +61,19 @@ public class ButtonManager : MonoBehaviour
     public void OnShop()
     {
         Debug.Log("Clicked Shop");
-        //SceneManager.LoadScene("ShopMenu");
+        SceneManager.LoadScene("ShopMenu");
     }
 
     public void OnGatcha()
     {
         Debug.Log("Clicked Gatcha");
-        //SceneManager.LoadScene("DestinyScene");
+        SceneManager.LoadScene("DestinyScene");
     }
 
     public void OnCustomize()
     {
         Debug.Log("Clicked Customize");
-        //SceneManager.LoadScene("CustomizeMenu");
+        SceneManager.LoadScene("CustomizeMenu");
     }
 
     public void OnInventory()
