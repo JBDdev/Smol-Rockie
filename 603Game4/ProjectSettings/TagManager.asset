@@ -11,6 +11,8 @@ TagManager:
   - rareRock
   - rock
   - hat
+  - showOnRates
+  - showOnHistory
   layers:
   - Default
   - TransparentFX
