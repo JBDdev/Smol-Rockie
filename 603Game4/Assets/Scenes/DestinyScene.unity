@@ -175,6 +175,19 @@ MonoBehaviour:
   - Quartz
   fourStarRepeatNumOfRocks: 200
   fiveStarRepeatNumOfRocks: 500
+  trailPrefab: {fileID: 371919328591751751, guid: de5f810ad6edc4347bf1f591ba471009, type: 3}
+  wayPointToChangeColor: 9
+  rewardDisplayTime: 2
+  rewardColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.14901961, g: 0.78431374, b: 0.29803923, a: 1}
+  - {r: 0.20784314, g: 0.35686275, b: 0.78431374, a: 1}
+  - {r: 0.7137255, g: 0.09019608, b: 0.77254903, a: 1}
+  - {r: 0.85882354, g: 0.38431373, b: 0.078431375, a: 1}
+  oneTwoStar: {fileID: 8141154576664429627, guid: 12d10d382a7d30347b0a52778512d283, type: 3}
+  threeStar: {fileID: 1831384711351250348, guid: 4d3a2e377db52654596b12a86e761bd6, type: 3}
+  fourStar: {fileID: 172367592044283132, guid: 7fae49f229ead464daece0bb2b857ada, type: 3}
+  fiveStar: {fileID: 3229018241453290189, guid: 4c188adeb0cfb774a81168083befa564, type: 3}
 --- !u!4 &134418479
 Transform:
   m_ObjectHideFlags: 0
@@ -421,7 +434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356.5, y: 141.73}
+  m_AnchoredPosition: {x: -270.98, y: 141.73}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852580239
@@ -583,7 +596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356.5, y: 162.72}
+  m_AnchoredPosition: {x: -270.98, y: 162.72}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978839056
@@ -710,7 +723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356.5, y: 183.28}
+  m_AnchoredPosition: {x: -270.98, y: 183.28}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109855175

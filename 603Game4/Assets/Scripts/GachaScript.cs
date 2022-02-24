@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GachaScript : MonoBehaviour
 {
+    private bool isPulling = false;
+
     //Percent of each level, should all add up to one
-    [SerializeField]private float fiveStarChance = .05f;
-    [SerializeField]private float fourStarChance = .1f;
-    [SerializeField]private float threeStarChance = .2f;
-    [SerializeField]private float twoStarChance = .25f;
-    [SerializeField]private float oneStarChance = .3f;
+    [Header("Chance Percents")]
+    [SerializeField] private float fiveStarChance = .05f;
+    [SerializeField] private float fourStarChance = .1f;
+    [SerializeField] private float threeStarChance = .2f;
+    [SerializeField] private float twoStarChance = .25f;
+    [SerializeField] private float oneStarChance = .3f;
 
     //Thresholds for comparing against random
     private float fourStarThreshold;
@@ -17,6 +21,7 @@ public class GachaScript : MonoBehaviour
     private float twoStarThreshold;
     private float oneStarThreshold;
 
+    [Header("Costs and Rewards")]
     [SerializeField] private int numOfRocksForPull = 50;
 
     //Rewards
@@ -28,6 +33,28 @@ public class GachaScript : MonoBehaviour
 
     [SerializeField] private int fourStarRepeatNumOfRocks = 200;
     [SerializeField] private int fiveStarRepeatNumOfRocks = 500;
+
+    [Header("Visuals")]
+    public GameObject trailPrefab;
+    private GameObject trail;
+    private float timeForUp = 1;
+    private ParticleSystem.MainModule p;
+    protected DOTweenPath path;
+    [SerializeField] private int wayPointToChangeColor = 9;
+    [SerializeField] private float rewardDisplayTime = 2;
+
+    //Variables for color change
+    private int colorIndex = 0;
+    public Color[] rewardColors = new Color[5];
+
+    [Header("Images For Testing")]
+    [SerializeField] private GameObject oneTwoStar;
+    [SerializeField] private GameObject threeStar;
+    [SerializeField] private GameObject fourStar;
+    [SerializeField] private GameObject fiveStar;
+
+    private GameObject rewardToSpawn;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +75,9 @@ public class GachaScript : MonoBehaviour
     void Update()
     {
         //Test Gacha Pull
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if (CurrencyManager.playerNumOfRockCurrency >= numOfRocksForPull)
+            if (CurrencyManager.playerNumOfRockCurrency >= numOfRocksForPull && !isPulling)
             {
                 MineGacha();
             }
@@ -62,84 +89,154 @@ public class GachaScript : MonoBehaviour
         }
     }
 
+    public void ChangeTrailColor(int wayPointindex)
+    {
+        if (wayPointindex == wayPointToChangeColor)
+        {
+            p = trail.GetComponentInChildren<ParticleSystem>().main;
+            p.startColor = new ParticleSystem.MinMaxGradient(rewardColors[colorIndex]);
+        }
+    }
+
     /// <summary>
     /// A method for performing a gacha pull
     /// </summary>
     public void MineGacha()
     {
+        isPulling = true;
+
         CurrencyManager.playerNumOfRockCurrency -= numOfRocksForPull;
 
         float chance = Random.Range(0, 100);
-        
+
         //One Star
         if (chance <= oneStarThreshold)
         {
             Debug.Log("One Star Reward");
-            CurrencyManager.playerNumOfRockCurrency += oneStarNumOfRocks;
+            colorIndex = 0;
         }
         //Two Star
         else if (chance <= twoStarThreshold)
         {
             Debug.Log("Two Star Reward");
-            CurrencyManager.playerNumOfRockCurrency += twoStarNumOfRocks;
+            colorIndex = 1;
         }
         //Three Star
         else if (chance <= threeStarThreshold)
         {
             Debug.Log("Three Star Reward");
-            CurrencyManager.playerNumOfPremiumCurrency += threeStarNumOfPremiumCurrency;
+            colorIndex = 2;
         }
         //Four Star
         else if (chance <= fourStarThreshold)
         {
             Debug.Log("Four Star Reward");
-
-            //Get a Random Four Star Cosmetic
-            string temp = fourStarCosmetics[Random.Range(0, fourStarCosmetics.Count - 1)];
-
-            Debug.Log(temp);
-
-            if (CurrencyManager.cosmetics.Count > 0)
-            {
-                foreach (string c in CurrencyManager.cosmetics)
-                {
-                    if (c == temp)
-                    {
-                        Debug.Log("This item is already owned");
-                        //This item is already owned
-                        CurrencyManager.playerNumOfRockCurrency += fourStarRepeatNumOfRocks;
-                        return;
-                    }
-                }
-            }
-
-            CurrencyManager.cosmetics.Add(temp);
+            colorIndex = 3;
         }
         //Five Star
         else
         {
             Debug.Log("Five Star Reward");
+            colorIndex = 4;
+        }
 
-            //Get a Random Five Star Cosmetic
-            string temp = fiveStarCosmetics[Random.Range(0, fiveStarCosmetics.Count - 1)];
+        //Spawn Visual Trail
+        trail = Instantiate(trailPrefab);
 
-            Debug.Log(temp);
+        path = trail.GetComponent<DOTweenPath>();
+        path.tween.OnWaypointChange(ChangeTrailColor).OnComplete(GiveReward);
+    }
 
-            if (CurrencyManager.rockCosmetics.Count > 0)
-            {
-                foreach (string c in CurrencyManager.rockCosmetics)
+    /// <summary>
+    /// Gives the reward to the player after the trail is complete
+    /// </summary>
+    public void GiveReward()
+    {
+        switch (colorIndex)
+        {
+            //One Star
+            case 0:
+                rewardToSpawn = oneTwoStar;
+                CurrencyManager.playerNumOfRockCurrency += oneStarNumOfRocks;
+                break;
+            //Two Star
+            case 1:
+                rewardToSpawn = oneTwoStar;
+                CurrencyManager.playerNumOfRockCurrency += twoStarNumOfRocks;
+                break;
+            //Three Star
+            case 2:
+                rewardToSpawn = threeStar;
+                CurrencyManager.playerNumOfPremiumCurrency += threeStarNumOfPremiumCurrency;
+                break;
+            //Four Star
+            case 3:
+                
+                //Get a Random Four Star Cosmetic
+                string temp4 = fourStarCosmetics[Random.Range(0, fourStarCosmetics.Count - 1)];
+
+                Debug.Log(temp4);
+
+                if (CurrencyManager.cosmetics.Count > 0)
                 {
-                    if (c == temp)
+                    foreach (string c in CurrencyManager.cosmetics)
                     {
-                        //This item is already owned
-                        Debug.Log("This item is already owned");
-                        CurrencyManager.playerNumOfRockCurrency += fiveStarRepeatNumOfRocks;
-                        return;
+                        if (c == temp4)
+                        {
+                            Debug.Log("This item is already owned");
+                            //This item is already owned
+                            CurrencyManager.playerNumOfRockCurrency += fourStarRepeatNumOfRocks;
+                            Destroy(trail);
+                            return;
+                        }
                     }
                 }
-            }
 
-            CurrencyManager.rockCosmetics.Add(temp);
+                rewardToSpawn = fourStar;
+                CurrencyManager.cosmetics.Add(temp4);
+                break;
+            //Five Star
+            case 4:
+
+                //Get a Random Five Star Cosmetic
+                string temp5 = fiveStarCosmetics[Random.Range(0, fiveStarCosmetics.Count - 1)];
+
+                Debug.Log(temp5);
+
+                if (CurrencyManager.rockCosmetics.Count > 0)
+                {
+                    foreach (string c in CurrencyManager.rockCosmetics)
+                    {
+                        if (c == temp5)
+                        {
+                            //This item is already owned
+                            Debug.Log("This item is already owned");
+                            CurrencyManager.playerNumOfRockCurrency += fiveStarRepeatNumOfRocks;
+                            Destroy(trail);
+                            return;
+                        }
+                    }
+                }
+
+                rewardToSpawn = fiveStar;
+                CurrencyManager.rockCosmetics.Add(temp5);
+
+                break;
         }
+
+        StartCoroutine(showRewardImage());
+    }
+
+    /// <summary>
+    /// Displays a image of the reward recieved
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator showRewardImage()
+    {
+        GameObject temp = Instantiate(rewardToSpawn);
+        yield return new WaitForSeconds(rewardDisplayTime);
+        Destroy(temp);
+        Destroy(trail);
+        isPulling = false;
     }
 }
