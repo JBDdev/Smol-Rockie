@@ -136,8 +136,8 @@ public class UIManager : MonoBehaviour
             currentMenuState = menuState;
             ShowMenu(pauseObjects);
         }
-        // If in camera, pressed escape
-        else if (currentMenuState == MenuState.Camera && menuState == MenuState.Game)
+        // If in camera, unhide game
+        else if(currentMenuState == MenuState.Camera && menuState == MenuState.Game)
         {
             currentMenuState = menuState;
             ShowMenu(gameObjects);
@@ -151,6 +151,7 @@ public class UIManager : MonoBehaviour
                 Time.timeScale = 0;
                 currentMenuState = menuState;
                 ShowMenu(menuObjects);
+                HideMenu(gameObjects);
             }
             // Unpausing game hides UI elements with correct label
             else if (Time.timeScale == 0)
@@ -158,6 +159,7 @@ public class UIManager : MonoBehaviour
                 Time.timeScale = 1;
                 currentMenuState = MenuState.Game;
                 HideMenu(menuObjects);
+                ShowMenu(gameObjects);
             }
         }
     }
@@ -220,9 +222,14 @@ public class UIManager : MonoBehaviour
             MenuControl(pauseObjects, MenuState.Pause);
         }
         // If clicked camera, remove game overlay
-        else if (name == "camera")
+        else if (name == "cameraStart")
         {
             MenuControl(gameObjects, MenuState.Camera);
+        }
+        // bring back game overlay
+        else if (name == "cameraEnd")
+        {
+            MenuControl(gameObjects, MenuState.Game);
         }
     }
 
