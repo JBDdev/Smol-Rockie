@@ -6,19 +6,9 @@ using UnityEngine;
 public class RockData : MonoBehaviour
 {
 
-    public string[] rockNames;
-    public GameObject[] rockPrefabs;
-    //public variable for 2D sprite (not sure what data type yet, based on UI implementation)
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+     [SerializeField]List<string> rockNames;
+     [SerializeField]List<Sprite> rockSprites;
+     
+     // Total number of rocks in the system
+     public int NumRocks { get { return rockSprites.Count; } }
 }
