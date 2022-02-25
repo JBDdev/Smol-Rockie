@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &217325930211315324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217325930211315321}
+  - component: {fileID: 217325930211315326}
+  - component: {fileID: 217325930211315327}
+  m_Layer: 0
+  m_Name: GameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &217325930211315321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217325930211315324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 703.5735, y: 270.00204, z: -283.10144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217325930211315326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217325930211315324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f718ea50ef1265340b697ffd16eb3c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fourStarNames:
+  - Angy
+  - OwO
+  - UwU
+  - Green Bow
+  - Pink Bow
+  - Blue Bowtie
+  - Green Bowtie
+  - Orange Bowtie
+  - Pink Bowtie
+  - Purple Bowtie
+  - Red Bowtie
+  - Yellow Bowtie
+  fiveStarNames:
+  - Top Hat
+  - Witch Hat
+  - Wizard Hat
+  - Sunglasses
+  - Monocle
+  fourStarTypes:
+  - Eyes
+  - Eyes
+  - Eyes
+  - Hat
+  - Hat
+  - Neck
+  - Neck
+  - Neck
+  - Neck
+  - Neck
+  - Neck
+  - Neck
+  fiveStarTypes:
+  - Hat
+  - Hat
+  - Hat
+  - Eyes
+  - Eyes
+  fourStarSprites:
+  - {fileID: 21300000, guid: 052808e25abe0954eb61df4caae4537d, type: 3}
+  - {fileID: 21300000, guid: 92f349783fd29134f9a880a4e6e2ecd1, type: 3}
+  - {fileID: 21300000, guid: 2698e8a6117ba484cb8d5258e64925b5, type: 3}
+  - {fileID: 21300000, guid: 629486ded5a222743882440a6145a8a4, type: 3}
+  - {fileID: 21300000, guid: 5f3a05861559b9f4cac228da1480e9c3, type: 3}
+  - {fileID: 21300000, guid: 4dc99976038123f43b1fbb4d78e48148, type: 3}
+  - {fileID: 21300000, guid: 9580a28e1a57ebb47a8a9017f80b7c19, type: 3}
+  - {fileID: 21300000, guid: d1343317ae0dbcb4ca48aacd9b1c17db, type: 3}
+  - {fileID: 21300000, guid: 14183a7a5ffbc3647af7f920d30e1a61, type: 3}
+  - {fileID: 21300000, guid: 2421a4dbde03745469f88024904dfad2, type: 3}
+  - {fileID: 21300000, guid: d9d5f0b1af3b3c241b8f7f7fdee5d0d5, type: 3}
+  - {fileID: 21300000, guid: 24b85e144f86f434ba9b79e30cd24b6b, type: 3}
+  fiveStarSprites:
+  - {fileID: 21300000, guid: e627cb1e44e6fc544b50aeb8fcd1a3c2, type: 3}
+  - {fileID: 21300000, guid: dfe6e2772a93e764f9bf6adc96b174ef, type: 3}
+  - {fileID: 21300000, guid: 9421acf6744bbca46a15ba733faa54a1, type: 3}
+  - {fileID: 21300000, guid: 4e1ec825ea0b18b44a5c88a701b7c31e, type: 3}
+  - {fileID: 21300000, guid: c27e4498815a4eb4b831696b46b4e81f, type: 3}
+--- !u!114 &217325930211315327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217325930211315324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcbc27d115efb84ea9866ac196b9c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockNames:
+  - Fred
+  - George
+  - Harold
+  - Saph
+  - Ruby
+  - Emmie
+  - David
+  rockSprites:
+  - {fileID: 21300000, guid: f57756835ee344b4bb24669fa8757107, type: 3}
+  - {fileID: 21300000, guid: fd68f11ac8caaf0418a061b927a27b79, type: 3}
+  - {fileID: 21300000, guid: 47109a6803680c244adbce14e2f8b883, type: 3}
+  - {fileID: 21300000, guid: 6d8a1a090e6f3b441ab7e1c237e2732a, type: 3}
+  - {fileID: 21300000, guid: a9cc0ff13f8cfef46aef61aff59c53ea, type: 3}
+  - {fileID: 21300000, guid: 7ffe7d0de4003464eba520f9e59c6c66, type: 3}
+  - {fileID: 21300000, guid: b2e4627d4288f0c4f83ed1b224f756f9, type: 3}
