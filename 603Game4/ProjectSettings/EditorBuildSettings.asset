@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4a36ae5c8ddf447538dbdb5e7ab97129
+  - enabled: 1
     path: Assets/Scenes/DestinyScene.unity
     guid: b75346eb8894afa449a97e813e15e039
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/CreditsMenu.unity
+    guid: b0f70f80fb67a49608d0df4028bf3abf
+  - enabled: 1
+    path: Assets/Scenes/CustomizeMenu.unity
+    guid: e5eb365446ddc425d8a8231965d765c7
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 9ff10936a65b242c0aace317f87f623c
+  - enabled: 1
+    path: Assets/Scenes/ShopMenu.unity
+    guid: d8db1fe6c0d874633a0f5188ddf54d72
   m_configObjects: {}
