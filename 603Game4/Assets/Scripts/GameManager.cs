@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rockCurrencyText.text = "Rock Currency: " + CurrencyManager.playerNumOfRockCurrency;
-        premiumCurrencyText.text = "Premium Currency: " + CurrencyManager.playerNumOfPremiumCurrency;
-        rocksHeldText.text = "Rocks Held: " + rocksHeld + "/" + maxRocksHeld;
+        //rockCurrencyText.text = "Rock Currency: " + CurrencyManager.playerNumOfRockCurrency;
+        //premiumCurrencyText.text = "Premium Currency: " + CurrencyManager.playerNumOfPremiumCurrency;
+        //rocksHeldText.text = "Rocks Held: " + rocksHeld + "/" + maxRocksHeld;
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenRockGain);
 
         rocksHeld++;
+        CurrencyManager.playerNumOfRocksHeld++;
 
         if (rocksHeld < maxRocksHeld)
         {
@@ -52,11 +53,42 @@ public class GameManager : MonoBehaviour
         if (rocksHeld >= maxRocksHeld)
         {
             rocksHeld = 0;
+            CurrencyManager.playerNumOfRocksHeld = 0;
             StartCoroutine(GainRockCurrency());
         }
         else
         {
             rocksHeld = 0;
+            CurrencyManager.playerNumOfRocksHeld = 0;
         }
+    }
+
+    /// <summary>
+    /// Sends the current number of rock currency to the UI
+    /// </summary>
+    public string DisplayRockCurrency()
+    {
+        return CurrencyManager.playerNumOfRockCurrency.ToString();
+    }
+
+    /// <summary>
+    /// Sends the current number of premium currency to the UI
+    /// </summary>
+    public string DisplayPremiium()
+    {
+        return CurrencyManager.playerNumOfPremiumCurrency.ToString();
+    }
+
+    /// <summary>
+    /// Sends the current number of rocks held to the UI
+    /// </summary>
+    public string DisplayRocksHeld()
+    {
+        return string.Format("{0}/{1}", CurrencyManager.playerNumOfRocksHeld, maxRocksHeld);
+    }
+
+    public void ClaimRocks()
+    {
+        CollectRockCurrency();
     }
 }

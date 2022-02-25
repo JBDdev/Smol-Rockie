@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject uI;
+    [SerializeField] private GameObject gM;
 
     public void OnStart()
     {
@@ -86,5 +87,11 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("Clicked Camera");
         uI.GetComponent<UIManager>().ButtonPress("camera");
+    }
+
+    public void OnClaim()
+    {
+        Debug.Log("Clicked Claim");
+        gM.GetComponent<GameManager>().ClaimRocks();
     }
 }

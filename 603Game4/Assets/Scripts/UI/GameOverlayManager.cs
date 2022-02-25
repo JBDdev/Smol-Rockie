@@ -21,6 +21,8 @@ public class GameOverlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        rCHNumber.text = gM.DisplayRocksHeld();
+        rCNumber.text = gM.DisplayRockCurrency();
+        pNumber.text = gM.DisplayPremiium();
     }
 }
