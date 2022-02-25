@@ -34,6 +34,9 @@ public class GachaScript : MonoBehaviour
     [SerializeField] private int fourStarRepeatNumOfRocks = 200;
     [SerializeField] private int fiveStarRepeatNumOfRocks = 500;
 
+    [SerializeField] private int fourStarPityThreshold = 10;
+    [SerializeField] private int fiveStarPityThreshold = 50;
+
     [Header("Visuals")]
     public GameObject trailPrefab;
     private GameObject trail;
@@ -55,6 +58,9 @@ public class GachaScript : MonoBehaviour
 
     private GameObject rewardToSpawn;
 
+    private int fourStarCounter = 0;
+    private int fiveStarCounter = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,9 +81,9 @@ public class GachaScript : MonoBehaviour
     void Update()
     {
         //Test Gacha Pull
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !isPulling)
         {
-            if (CurrencyManager.playerNumOfRockCurrency >= numOfRocksForPull && !isPulling)
+            if (CurrencyManager.playerNumOfRockCurrency >= numOfRocksForPull)
             {
                 MineGacha();
             }
@@ -106,38 +112,55 @@ public class GachaScript : MonoBehaviour
         isPulling = true;
 
         CurrencyManager.playerNumOfRockCurrency -= numOfRocksForPull;
+        float chance = 0;
 
-        float chance = Random.Range(0, 100);
+        if (fiveStarCounter >= fiveStarPityThreshold)
+        {
+            Debug.Log("5 Star Pity");
+            chance = fourStarThreshold + 1;
+        }
+        else if (fourStarCounter >= fourStarPityThreshold)
+        {
+            Debug.Log("4 Star Pity");
+            chance = fourStarThreshold - 1;
+        }
+        else
+        {
+            chance = Random.Range(0, 100);
+        }
+
+        fourStarCounter++;
+        fiveStarCounter++;
+
+        Debug.Log(fourStarCounter);
+        Debug.Log(fiveStarCounter);
 
         //One Star
         if (chance <= oneStarThreshold)
         {
-            Debug.Log("One Star Reward");
             colorIndex = 0;
         }
         //Two Star
         else if (chance <= twoStarThreshold)
         {
-            Debug.Log("Two Star Reward");
             colorIndex = 1;
         }
         //Three Star
         else if (chance <= threeStarThreshold)
         {
-            Debug.Log("Three Star Reward");
             colorIndex = 2;
         }
         //Four Star
         else if (chance <= fourStarThreshold)
         {
-            Debug.Log("Four Star Reward");
             colorIndex = 3;
+            fourStarCounter = 0;
         }
         //Five Star
         else
         {
-            Debug.Log("Five Star Reward");
             colorIndex = 4;
+            fiveStarCounter = 0;
         }
 
         //Spawn Visual Trail
