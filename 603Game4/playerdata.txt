@@ -1,0 +1,38 @@
+{
+    "collectedRocks": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    "fourStarCos": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    "fiveStarCos": [
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    "currentRock": -1,
+    "hat": -1,
+    "face": -1,
+    "neck": -1,
+    "money": 0,
+    "premiumMoney": 0
+}
