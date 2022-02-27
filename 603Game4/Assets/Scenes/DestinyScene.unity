@@ -152,11 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6005f606be1efac4ab1fbbe17bd2ea19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fiveStarChance: 0.5
-  fourStarChance: 0.5
-  threeStarChance: 0
-  twoStarChance: 0
-  oneStarChance: 0
+  fiveStarChance: 0.05
+  fourStarChance: 0.1
+  threeStarChance: 0.15
+  twoStarChance: 0.3
+  oneStarChance: 0.4
   numOfRocksForPull: 50
   oneStarNumOfRocks: 25
   twoStarNumOfRocks: 75
