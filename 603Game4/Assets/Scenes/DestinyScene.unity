@@ -152,29 +152,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6005f606be1efac4ab1fbbe17bd2ea19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fiveStarChance: 0.05
-  fourStarChance: 0.1
-  threeStarChance: 0.15
-  twoStarChance: 0.3
-  oneStarChance: 0.4
+  fiveStarChance: 0.5
+  fourStarChance: 0.5
+  threeStarChance: 0
+  twoStarChance: 0
+  oneStarChance: 0
   numOfRocksForPull: 50
   oneStarNumOfRocks: 25
   twoStarNumOfRocks: 75
   threeStarNumOfPremiumCurrency: 25
-  fourStarCosmetics:
-  - Top Hat
-  - Googly Eyes
-  - Monocle
-  - Cape
-  - Bowtie
-  fiveStarCosmetics:
-  - Ruby
-  - Diamond
-  - Emerald
-  - Opal
-  - Quartz
   fourStarRepeatNumOfRocks: 200
   fiveStarRepeatNumOfRocks: 500
+  fourStarPityThreshold: 10
+  fiveStarPityThreshold: 50
   trailPrefab: {fileID: 371919328591751751, guid: de5f810ad6edc4347bf1f591ba471009, type: 3}
   wayPointToChangeColor: 9
   rewardDisplayTime: 2
@@ -542,6 +532,63 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1211407639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6880777261863928547, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_Name
+      value: GameData
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 703.5735
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 270.00204
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -283.10144
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880777261863928551, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4fdc602996afc945821f6a4dcade011, type: 3}
 --- !u!4 &1348729547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 218713269144748892, guid: e0d881a0e8168fd4e9454db7ea6fa314, type: 3}

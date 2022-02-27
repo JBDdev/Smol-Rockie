@@ -28,8 +28,8 @@ public class GachaScript : MonoBehaviour
     [SerializeField] private int oneStarNumOfRocks = 25;
     [SerializeField] private int twoStarNumOfRocks = 75;
     [SerializeField] private int threeStarNumOfPremiumCurrency = 25;
-    [SerializeField] private List<string> fourStarCosmetics;
-    [SerializeField] private List<string> fiveStarCosmetics;
+    //[SerializeField] private List<string> fourStarCosmetics;
+    //[SerializeField] private List<string> fiveStarCosmetics;
 
     [SerializeField] private int fourStarRepeatNumOfRocks = 200;
     [SerializeField] private int fiveStarRepeatNumOfRocks = 500;
@@ -61,10 +61,20 @@ public class GachaScript : MonoBehaviour
     private int fourStarCounter = 0;
     private int fiveStarCounter = 0;
 
+    //References to Data Scripts
+    private Collection collectionScript;
+    private CosmeticsData cosmeticsScript;
+    private RockData rockScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject gameData = GameObject.Find("GameData");
+        collectionScript = gameData.GetComponent<Collection>();
+        cosmeticsScript = gameData.GetComponent<CosmeticsData>();
+        rockScript = gameData.GetComponent<RockData>();
+
         //Set thresholds based on percentages
         oneStarThreshold = 100 * oneStarChance;
         twoStarThreshold = oneStarThreshold + (100 * twoStarChance);
@@ -194,57 +204,93 @@ public class GachaScript : MonoBehaviour
                 break;
             //Four Star
             case 3:
-                
+
                 //Get a Random Four Star Cosmetic
-                string temp4 = fourStarCosmetics[Random.Range(0, fourStarCosmetics.Count - 1)];
+                int index = Random.Range(0, cosmeticsScript.NumFourStars - 1);
+                string temp4 = cosmeticsScript.fourStarNames[index];
 
                 Debug.Log(temp4);
 
-                if (CurrencyManager.cosmetics.Count > 0)
+                if (collectionScript.data.fourStarCos[index] == true)
                 {
-                    foreach (string c in CurrencyManager.cosmetics)
-                    {
-                        if (c == temp4)
-                        {
-                            Debug.Log("This item is already owned");
-                            //This item is already owned
-                            CurrencyManager.playerNumOfRockCurrency += fourStarRepeatNumOfRocks;
-                            Destroy(trail);
-                            return;
-                        }
-                    }
+                    Debug.Log("This item is already owned");
+                    //This item is already owned
+                    CurrencyManager.playerNumOfRockCurrency += fourStarRepeatNumOfRocks;
+
+                    fourStar.GetComponent<SpriteRenderer>().sprite = cosmeticsScript.fourStarSprites[index];
+                    rewardToSpawn = fourStar;
+
+                    StartCoroutine(showRewardImage());
+                    return;
                 }
 
+                collectionScript.data.fourStarCos[index] = true;
+
+                fourStar.GetComponent<SpriteRenderer>().sprite = cosmeticsScript.fourStarSprites[index];
                 rewardToSpawn = fourStar;
-                CurrencyManager.cosmetics.Add(temp4);
                 break;
             //Five Star
             case 4:
-
-                //Get a Random Five Star Cosmetic
-                string temp5 = fiveStarCosmetics[Random.Range(0, fiveStarCosmetics.Count - 1)];
-
-                Debug.Log(temp5);
-
-                if (CurrencyManager.rockCosmetics.Count > 0)
+                //Rock or Item
+                if (Random.Range(0f, 1f) >= .5)
                 {
-                    foreach (string c in CurrencyManager.rockCosmetics)
+                    //Item
+
+                    //Get a Random Four Star Cosmetic
+                    int index5 = Random.Range(0, cosmeticsScript.NumFiveStars - 1);
+                    string temp5 = cosmeticsScript.fiveStarNames[index5];
+
+                    Debug.Log(temp5);
+
+                    if (collectionScript.data.fiveStarCos[index5] == true)
                     {
-                        if (c == temp5)
-                        {
-                            //This item is already owned
-                            Debug.Log("This item is already owned");
-                            CurrencyManager.playerNumOfRockCurrency += fiveStarRepeatNumOfRocks;
-                            Destroy(trail);
-                            return;
-                        }
+                        Debug.Log("This item is already owned");
+                        //This item is already owned
+                        CurrencyManager.playerNumOfRockCurrency += fiveStarRepeatNumOfRocks;
+                        
+                        fiveStar.GetComponent<SpriteRenderer>().sprite = cosmeticsScript.fiveStarSprites[index5];
+                        rewardToSpawn = fiveStar;
+
+                        StartCoroutine(showRewardImage());
+                        return;
                     }
+
+                    collectionScript.data.fiveStarCos[index5] = true;
+
+                    fiveStar.GetComponent<SpriteRenderer>().sprite = cosmeticsScript.fiveStarSprites[index5];
+                    rewardToSpawn = fiveStar;
+                    break;
                 }
+                else
+                {
+                    //Rock
 
-                rewardToSpawn = fiveStar;
-                CurrencyManager.rockCosmetics.Add(temp5);
+                    //Get a Random Four Star Cosmetic
+                    int index5 = Random.Range(0, rockScript.NumRocks - 1);
+                    string temp5 = rockScript.rockNames[index5];
 
-                break;
+                    Debug.Log(temp5);
+
+                    if (collectionScript.data.collectedRocks[index5] == true)
+                    {
+                        Debug.Log("This item is already owned");
+                        //This item is already owned
+                        CurrencyManager.playerNumOfRockCurrency += fiveStarRepeatNumOfRocks;
+
+                        fiveStar.GetComponent<SpriteRenderer>().sprite = rockScript.rockSprites[index5];
+                        rewardToSpawn = fiveStar;
+
+                        StartCoroutine(showRewardImage());
+                        return;
+                    }
+
+                    collectionScript.data.collectedRocks[index5] = true;
+
+                    fiveStar.GetComponent<SpriteRenderer>().sprite = rockScript.rockSprites[index5];
+                    rewardToSpawn = fiveStar;
+
+                    break;
+                }
         }
 
         StartCoroutine(showRewardImage());
@@ -261,5 +307,7 @@ public class GachaScript : MonoBehaviour
         Destroy(temp);
         Destroy(trail);
         isPulling = false;
+
+        collectionScript.UpdateFile();
     }
 }
