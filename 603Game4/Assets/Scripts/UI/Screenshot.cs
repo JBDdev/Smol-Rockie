@@ -69,12 +69,12 @@ public class Screenshot : MonoBehaviour
     /// </summary>
     public void onSetLocation()
     {
-        string savePath = EditorUtility.OpenFolderPanel("Open Folder", "", "");
+        //string savePath = EditorUtility.OpenFolderPanel("Open Folder", "", "");
 
-        if (savePath != null)
-        {
-            screenshotsPath = savePath;
-            userPath.text = screenshotsPath;
-        }
+        //if (savePath != null)
+        //{
+        //    screenshotsPath = savePath;
+        //    userPath.text = screenshotsPath;
+        //}
     }
 }

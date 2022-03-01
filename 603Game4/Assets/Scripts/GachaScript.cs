@@ -96,6 +96,7 @@ public class GachaScript : MonoBehaviour
             if (CurrencyManager.playerNumOfRockCurrency >= numOfRocksForPull)
             {
                 MineGacha();
+                Debug.Log(CurrencyManager.playerNumOfRockCurrency);
             }
             else
             {
