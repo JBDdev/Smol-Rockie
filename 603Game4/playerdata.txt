@@ -16,7 +16,7 @@
         true,
         false,
         false,
-        false,
+        true,
         false,
         false,
         false,
@@ -26,7 +26,7 @@
         true,
         false,
         false,
-        false,
+        true,
         false
     ],
     "currentRock": -1,
