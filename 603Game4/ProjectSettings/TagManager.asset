@@ -15,6 +15,7 @@ TagManager:
   - showOnHistory
   - eyeWear
   - neckWear
+  - showOnRockChange
   layers:
   - Default
   - TransparentFX
