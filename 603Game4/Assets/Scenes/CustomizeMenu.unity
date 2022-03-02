@@ -279,6 +279,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 218713269144748892, guid: e0d881a0e8168fd4e9454db7ea6fa314, type: 3}
   m_PrefabInstance: {fileID: 204810116}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &428056254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7070357061767735042, guid: 14dd6ebf3874b1348aefa5eca7483bd3, type: 3}
+  m_PrefabInstance: {fileID: 1816698941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b973e344c7c874b5e9e6f30f6a4acf7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535495661
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,11 +639,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!224 &1137635891 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5347912764078746990, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
-  m_PrefabInstance: {fileID: 5347912765199490909}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1100493316
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +721,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1137635891 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5347912764078746990, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
+  m_PrefabInstance: {fileID: 5347912765199490909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1214691949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,6 +1078,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7832553899220147366, guid: 14dd6ebf3874b1348aefa5eca7483bd3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 428056254}
+    - target: {fileID: 7832553899220147366, guid: 14dd6ebf3874b1348aefa5eca7483bd3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClaim
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832553899220147366, guid: 14dd6ebf3874b1348aefa5eca7483bd3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832553899220147366, guid: 14dd6ebf3874b1348aefa5eca7483bd3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14dd6ebf3874b1348aefa5eca7483bd3, type: 3}
 --- !u!114 &1816698942 stripped
@@ -1287,12 +1314,28 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347912763842638834, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347912763842638834, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347912763842638834, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347912763952005257, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347912763952005257, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347912763952005257, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347912764078746990, guid: 78d9532c04eb8724d976af3ae0dd9143, type: 3}

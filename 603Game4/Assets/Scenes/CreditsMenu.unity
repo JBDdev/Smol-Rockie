@@ -193,7 +193,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello
+  m_Text: 'Brody Davidson - Saving/inventory
+
+    Ajay Ramnarine - Art
+
+    Destiny
+    Treptau - Gatcha
+
+    Katarina Tretter - UI'
 --- !u!222 &81637589
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -558,6 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uI: {fileID: 891454562}
+  gM: {fileID: 0}
 --- !u!114 &705570158
 MonoBehaviour:
   m_ObjectHideFlags: 0
