@@ -16,6 +16,8 @@ TagManager:
   - eyeWear
   - neckWear
   - showOnRockChange
+  - showOnConfirm
+  - showOnSuccess
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject uI;
+
+    [Tooltip("Game Manager")]
     [SerializeField] private GameObject gM;
 
     public void OnStart()
