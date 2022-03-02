@@ -232,5 +232,4 @@ public class UIManager : MonoBehaviour
             MenuControl(gameObjects, MenuState.Game);
         }
     }
-
 }

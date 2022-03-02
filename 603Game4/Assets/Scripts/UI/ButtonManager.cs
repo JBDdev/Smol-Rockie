@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private GameObject uI;
+    [Tooltip("UI Manager")][SerializeField] private GameObject uI;
+    [Tooltip("Game Manager")][SerializeField] private GameObject gM;
+    [Tooltip("Shop Menu Manager")][SerializeField] private GameObject sM;
 
-    [Tooltip("Game Manager")]
-    [SerializeField] private GameObject gM;
+    //---------GENERAL BUTTONS---------
 
     public void OnStart()
     {
@@ -95,5 +96,36 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("Clicked Claim");
         gM.GetComponent<GameManager>().ClaimRocks();
+    }
+
+    //---------SHOP BUTTONS---------
+    public void OnConvert()
+    {
+        Debug.Log("Clicked Convert");
+        sM.GetComponent<ShopMenuManager>().ButtonPress("convert");
+    }
+
+    public void OnPurchase()
+    {
+        Debug.Log("Clicked Purchase");
+        sM.GetComponent<ShopMenuManager>().ButtonPress("purchase");
+    }
+
+    public void OnCancel()
+    {
+        Debug.Log("Clicked Cancel");
+        sM.GetComponent<ShopMenuManager>().ButtonPress("cancel");
+    }
+
+    public void OnConfirm()
+    {
+        Debug.Log("Clicked Confirm");
+        sM.GetComponent<ShopMenuManager>().ButtonPress("confirm");
+    }
+
+    public void OnOkay()
+    {
+        Debug.Log("Clicked Okay");
+        sM.GetComponent<ShopMenuManager>().ButtonPress("okay");
     }
 }
