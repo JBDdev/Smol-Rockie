@@ -12,7 +12,8 @@ public enum MenuState
     Pause,
     Options,
     Inventory,
-    Camera
+    Camera,
+    RockChange
 }
 
 public class UIManager : MonoBehaviour
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] pauseObjects;
     [SerializeField] private GameObject[] optionObjects;
     [SerializeField] private GameObject[] inventoryObjects;
+    [SerializeField] private GameObject[] rockChangeObjects;
 
     public MenuState currentMenuState = MenuState.Game;
 
@@ -35,11 +37,13 @@ public class UIManager : MonoBehaviour
         pauseObjects = GameObject.FindGameObjectsWithTag("showOnPause");
         optionObjects = GameObject.FindGameObjectsWithTag("showOnOptions");
         inventoryObjects = GameObject.FindGameObjectsWithTag("showOnInventory");
+        rockChangeObjects = GameObject.FindGameObjectsWithTag("showOnRockChange");
 
         // Hide menus
         HideMenu(pauseObjects);
         HideMenu(optionObjects);
         HideMenu(inventoryObjects);
+        HideMenu(rockChangeObjects);
     }
 
     // Update is called once per frame
@@ -121,6 +125,18 @@ public class UIManager : MonoBehaviour
         {
             HideMenu(gameObjects);
             currentMenuState = menuState;
+        }
+        // If in game, clicked on rock change
+        else if (currentMenuState == MenuState.Game && menuState == MenuState.RockChange)
+        {
+            currentMenuState = MenuState.RockChange;
+            ShowMenu(rockChangeObjects);
+        }
+        // If in rock change, go back to game
+        else if (currentMenuState == MenuState.RockChange && menuState == MenuState.Game)
+        {
+            HideMenu(rockChangeObjects);
+            currentMenuState = MenuState.Game;
         }
         // If in options menu, clicked back arrow
         else if (currentMenuState == MenuState.Options && menuState == MenuState.Pause)
@@ -230,6 +246,16 @@ public class UIManager : MonoBehaviour
         else if (name == "cameraEnd")
         {
             MenuControl(gameObjects, MenuState.Game);
+        }
+        // If clicked rock change
+        else if (name == "rockChangeOpen")
+        {
+            MenuControl(rockChangeObjects, MenuState.RockChange);
+        }
+        // bring back to game overlay
+        else if (name == "rockChangeClose")
+        {
+            MenuControl(rockChangeObjects, MenuState.Game);
         }
     }
 }

@@ -128,4 +128,17 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("Clicked Okay");
         sM.GetComponent<ShopMenuManager>().ButtonPress("okay");
     }
+
+    //---------CUSTOMIZE BUTTONS---------
+    public void OnRockChangeOpen()
+    {
+        Debug.Log("Clicked Rock Change Open");
+        uI.GetComponent<UIManager>().ButtonPress("rockChangeOpen");
+    }
+
+    public void OnRockChangeClose()
+    {
+        Debug.Log("Clicked Rock Change Close");
+        uI.GetComponent<UIManager>().ButtonPress("rockChangeClose");
+    }
 }
