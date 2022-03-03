@@ -56,7 +56,7 @@ public class CustomizeInventoryManager : MonoBehaviour
                 sprites.Add(cData.fiveStarSprites[i]);
                 types.Add(cData.fiveStarTypes[i]);
                 names.Add(cData.fiveStarNames[i]);
-                indexes.Add(i);
+                indexes.Add(i + cData.NumFourStars);
             }
             else
             {

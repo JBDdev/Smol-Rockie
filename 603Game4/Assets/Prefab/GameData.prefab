@@ -122,6 +122,9 @@ MonoBehaviour:
   - Rubie
   - Emmie
   - David
+  - Erika
+  - Amy
+  - DIana
   rockSprites:
   - {fileID: 21300000, guid: f57756835ee344b4bb24669fa8757107, type: 3}
   - {fileID: 21300000, guid: fd68f11ac8caaf0418a061b927a27b79, type: 3}
@@ -130,6 +133,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a9cc0ff13f8cfef46aef61aff59c53ea, type: 3}
   - {fileID: 21300000, guid: 7ffe7d0de4003464eba520f9e59c6c66, type: 3}
   - {fileID: 21300000, guid: b2e4627d4288f0c4f83ed1b224f756f9, type: 3}
+  - {fileID: 21300000, guid: e9077fee78ac46248a2c674862f071ee, type: 3}
+  - {fileID: 21300000, guid: 4eee1748d3cb27442bc714ebb187750e, type: 3}
+  - {fileID: 21300000, guid: b2d935b742f711f41a1112bd2d6f6dca, type: 3}
+  rockPrefabs:
+  - {fileID: 3020175713666511338, guid: c470a19859014534285550257174290d, type: 3}
+  - {fileID: 6416299775789513089, guid: 71bf8ae02bd0237488ae74667755f2b8, type: 3}
+  - {fileID: 753651477501926013, guid: 97fdf6434c0c1764a9adfb4f23626941, type: 3}
+  - {fileID: 4831711577605427409, guid: fbe4fe46d0440b2449c184ad39f6fed9, type: 3}
+  - {fileID: 6760559989784689723, guid: 04673590fcf1d7f459ced8a63fd448a1, type: 3}
+  - {fileID: 4373273698350195096, guid: 1da82a180bfc18146a8d8f80647d48a4, type: 3}
+  - {fileID: 5154356280489586384, guid: db333fa152895104da66a25fe629c079, type: 3}
+  - {fileID: 5064440053505583966, guid: bc8cc05071188784c8fe312e4b946862, type: 3}
+  - {fileID: 145990495626026853, guid: a1a64ab3df699ce4399db0956a573175, type: 3}
+  - {fileID: 5100827478420040165, guid: 3e19377ef670535439b902a7fd4aa358, type: 3}
 --- !u!114 &6880777261863928548
 MonoBehaviour:
   m_ObjectHideFlags: 0

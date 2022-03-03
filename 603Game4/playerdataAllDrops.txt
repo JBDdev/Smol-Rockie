@@ -1,33 +1,36 @@
 {
     "collectedRocks": [
-        false,
-        false,
         true,
-        false,
-        false,
-        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
         true
     ],
     "fourStarCos": [
-        false,
         true,
         true,
-        false,
         true,
-        false,
-        false,
         true,
-        false,
-        false,
         true,
-        false
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
     ],
     "fiveStarCos": [
         true,
-        false,
-        false,
         true,
-        false
+        true,
+        true,
+        true
     ],
     "currentRock": 2,
     "hat": -1,
