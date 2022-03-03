@@ -19,7 +19,7 @@
         true,
         false,
         false,
-        false,
+        true,
         false
     ],
     "fiveStarCos": [

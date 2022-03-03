@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 998427195424758231}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OnCustomize
+        m_MethodName: OnOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 0}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!1 &4634708790340915224
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 0}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!1 &4845566342962909994
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 0}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!1 &5667808914554187161
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 0}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!1 &6448109486154781184
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 0}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!1 &7276644460393899005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,3 +1068,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 0}
   gM: {fileID: 0}
+  sM: {fileID: 0}

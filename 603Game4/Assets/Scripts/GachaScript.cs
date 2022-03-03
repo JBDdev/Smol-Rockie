@@ -311,4 +311,24 @@ public class GachaScript : MonoBehaviour
 
         collectionScript.UpdateFile();
     }
+
+    /// <summary>
+    /// Method for pulling
+    /// </summary>
+    public void Pull()
+    {
+        if (!isPulling)
+        {
+            if (CurrencyManager.playerNumOfRockCurrency >= numOfRocksForPull)
+            {
+                MineGacha();
+                Debug.Log(CurrencyManager.playerNumOfRockCurrency);
+            }
+            else
+            {
+                Debug.Log("Not enough rock currency");
+            }
+
+        }
+    }
 }
