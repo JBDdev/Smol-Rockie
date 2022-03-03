@@ -68,7 +68,8 @@ public class CollectionData
         collectedRocks = new bool[numRocks];
         fourStarCos = new bool[numFourStars];
         fiveStarCos = new bool[numFiveStars];
-        currentRock = -1;
+        collectedRocks[2] = true;
+        currentRock = 2;
         hat = -1;
         face = -1;
         neck = -1;

@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Brody Davidson - Saving/inventory
+  m_Text: 'Brody Davison - Saving/inventory
 
     Ajay Ramnarine - Art
 
@@ -366,8 +366,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441055292}
   m_HandleRect: {fileID: 441055291}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.78940624
+  m_Value: 1.0000004
+  m_Size: 0.7894063
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -568,6 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 891454562}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!114 &691576542
 MonoBehaviour:
   m_ObjectHideFlags: 0
