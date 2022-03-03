@@ -104,6 +104,10 @@ public class GachaScript : MonoBehaviour
             }
 
         }
+        else if(Input.GetKeyDown(KeyCode.Alpha9) && !isPulling)
+        {
+            CheatCode();
+        }
     }
 
     public void ChangeTrailColor(int wayPointindex)
@@ -237,7 +241,7 @@ public class GachaScript : MonoBehaviour
                 {
                     //Item
 
-                    //Get a Random Four Star Cosmetic
+                    //Get a Random Five Star Cosmetic
                     int index5 = Random.Range(0, cosmeticsScript.NumFiveStars - 1);
                     string temp5 = cosmeticsScript.fiveStarNames[index5];
 
@@ -266,7 +270,7 @@ public class GachaScript : MonoBehaviour
                 {
                     //Rock
 
-                    //Get a Random Four Star Cosmetic
+                    //Get a Random Five Star Cosmetic
                     int index5 = Random.Range(0, rockScript.NumRocks - 1);
                     string temp5 = rockScript.rockNames[index5];
 
@@ -312,6 +316,7 @@ public class GachaScript : MonoBehaviour
         collectionScript.UpdateFile();
     }
 
+
     /// <summary>
     /// Method for pulling
     /// </summary>
@@ -330,5 +335,48 @@ public class GachaScript : MonoBehaviour
             }
 
         }
+    }
+
+    public void CheatCode()
+    {
+        colorIndex = 4;
+
+        //Spawn Visual Trail
+        trail = Instantiate(trailPrefab);
+
+        path = trail.GetComponent<DOTweenPath>();
+        path.tween.OnWaypointChange(ChangeTrailColor).OnComplete(GiveCheatReward);
+    }
+
+    public void GiveCheatReward()
+    {
+        int index = 0;
+        for (int i = 0; i < rockScript.rockNames.Count; i++)
+        {
+            if (rockScript.rockNames[i] == "David")
+            {
+                index = i;
+            }
+        }
+
+        if (collectionScript.data.collectedRocks[index] == true)
+        {
+            Debug.Log("This item is already owned");
+            //This item is already owned
+            CurrencyManager.playerNumOfRockCurrency += fiveStarRepeatNumOfRocks;
+
+            fiveStar.GetComponent<SpriteRenderer>().sprite = rockScript.rockSprites[index];
+            rewardToSpawn = fiveStar;
+
+            StartCoroutine(showRewardImage());
+            return;
+        }
+
+        collectionScript.data.collectedRocks[index] = true;
+
+        fiveStar.GetComponent<SpriteRenderer>().sprite = rockScript.rockSprites[index];
+        rewardToSpawn = fiveStar;
+
+        StartCoroutine(showRewardImage());
     }
 }
