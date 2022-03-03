@@ -2570,6 +2570,10 @@ PrefabInstance:
       propertyPath: collection
       value: 
       objectReference: {fileID: 453909454}
+    - target: {fileID: 5242558922523917903, guid: 76c9c64365940d543987db0791794e6e, type: 3}
+      propertyPath: slotPrefab
+      value: 
+      objectReference: {fileID: 7532866876351290127, guid: a8bae77531a437a4d80e7d3b585deeb4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76c9c64365940d543987db0791794e6e, type: 3}
 --- !u!1001 &5347912765199490909
