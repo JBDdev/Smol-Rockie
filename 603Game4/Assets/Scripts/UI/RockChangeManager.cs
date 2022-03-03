@@ -20,6 +20,23 @@ public class RockChangeManager : MonoBehaviour
         c = collection.GetComponent<Collection>();
         rockData = collection.GetComponent<RockData>();
 
+        names = new List<string>();
+        sprites = new List<Sprite>();
+
+        Invoke("UpdateUI", .5f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void UpdateUI()
+    {
+        c = collection.GetComponent<Collection>();
+        rockData = collection.GetComponent<RockData>();
+
         // Checking which rocks we currently have
         for (int i = 0; i < c.data.collectedRocks.Length; i++)
         {
@@ -35,17 +52,6 @@ public class RockChangeManager : MonoBehaviour
             }
         }
 
-        UpdateUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void UpdateUI()
-    {
         for (int i = 0; i < sprites.Count; i++)
         {
             GameObject newInstance = Instantiate(slotPrefab, inventory.transform); // From Denaton - https://answers.unity.com/questions/260100/instantiate-as-a-child-of-the-parent.html
