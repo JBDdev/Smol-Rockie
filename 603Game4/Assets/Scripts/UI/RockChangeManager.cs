@@ -13,6 +13,7 @@ public class RockChangeManager : MonoBehaviour
 
     [SerializeField] private List<string> names;
     [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private List<int> indexes;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class RockChangeManager : MonoBehaviour
 
         names = new List<string>();
         sprites = new List<Sprite>();
+        indexes = new List<int>();
 
         Invoke("UpdateUI", .5f);
     }
@@ -37,6 +39,10 @@ public class RockChangeManager : MonoBehaviour
         c = collection.GetComponent<Collection>();
         rockData = collection.GetComponent<RockData>();
 
+        sprites.Clear();
+        names.Clear();
+        indexes.Clear();
+
         // Checking which rocks we currently have
         for (int i = 0; i < c.data.collectedRocks.Length; i++)
         {
@@ -45,6 +51,7 @@ public class RockChangeManager : MonoBehaviour
             {
                 sprites.Add(rockData.rockSprites[i]);
                 names.Add(rockData.rockNames[i]);
+                indexes.Add(i);
             }
             else
             {
@@ -56,7 +63,7 @@ public class RockChangeManager : MonoBehaviour
         {
             GameObject newInstance = Instantiate(slotPrefab, inventory.transform); // From Denaton - https://answers.unity.com/questions/260100/instantiate-as-a-child-of-the-parent.html
             newInstance.tag = "showOnRockChange";
-            newInstance.GetComponent<InventorySlot>().StoreRockInformation(names[i], sprites[i]);
+            newInstance.GetComponent<InventorySlot>().StoreRockInformation(names[i], sprites[i], indexes[i]);
             newInstance.GetComponent<InventorySlot>().AddItem(sprites[i]);
         }
 

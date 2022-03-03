@@ -7,7 +7,9 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private Image itemIcon;
     [SerializeField] private string itemType;
+    [SerializeField] private string itemName;
     [SerializeField] private Sprite itemImage;
+    [SerializeField] private int itemIndex;
 
     //---------PROPERTIES---------
     public string ItemType
@@ -22,11 +24,18 @@ public class InventorySlot : MonoBehaviour
         set { itemImage = value; }
     }
 
-
-    public void StoreInformation(string name, string type, Sprite image)
+    public int Index
     {
+        get { return itemIndex; }
+        set { itemIndex = value; }
+    }
+
+    public void StoreInformation(string name, string type, Sprite image, int index)
+    {
+        itemName = name;
         itemType = type;
         itemImage = image;
+        itemIndex = index;
     }
 
     public void AddItem(Sprite image)
@@ -36,21 +45,10 @@ public class InventorySlot : MonoBehaviour
         itemIcon.color = new Color(itemIcon.color.r, itemIcon.color.g, itemIcon.color.b, 1.0f);
     }
 
-    public void StoreRockInformation(string name, Sprite image)
+    public void StoreRockInformation(string name, Sprite image, int index)
     {
+        itemName = name;
         itemImage = image;
-    }
-
-    public void onSelected()
-    {
-        DressRock(itemType);
-    }
-
-    private void DressRock(string type)
-    {
-        switch (type)
-        {
-            //case ""
-        }
+        itemIndex = index;
     }
 }

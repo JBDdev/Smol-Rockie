@@ -15,6 +15,7 @@ public class CustomizeInventoryManager : MonoBehaviour
     [SerializeField] private List<string> names;
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private List<string> types;
+    [SerializeField] private List<int> indexes;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class CustomizeInventoryManager : MonoBehaviour
         names = new List<string>();
         sprites = new List<Sprite>();
         types = new List<string>();
+        indexes = new List<int>();
 
         Invoke("UpdateUI", .5f);
     }
@@ -43,6 +45,7 @@ public class CustomizeInventoryManager : MonoBehaviour
         sprites.Clear();
         types.Clear();
         names.Clear();
+        indexes.Clear();
 
         // Checking which 5 star cosmetics we currently have
         for (int i = 0; i < c.data.fiveStarCos.Length; i++)
@@ -53,6 +56,7 @@ public class CustomizeInventoryManager : MonoBehaviour
                 sprites.Add(cData.fiveStarSprites[i]);
                 types.Add(cData.fiveStarTypes[i]);
                 names.Add(cData.fiveStarNames[i]);
+                indexes.Add(i);
             }
             else
             {
@@ -68,6 +72,7 @@ public class CustomizeInventoryManager : MonoBehaviour
                 sprites.Add(cData.fourStarSprites[i]);
                 types.Add(cData.fourStarTypes[i]);
                 names.Add(cData.fourStarNames[i]);
+                indexes.Add(i);
             }
             else
             {
@@ -78,7 +83,7 @@ public class CustomizeInventoryManager : MonoBehaviour
         for (int i = 0; i < sprites.Count; i++)
         {
             GameObject newInstance = Instantiate(slotPrefab, inventory.transform); // From Denaton - https://answers.unity.com/questions/260100/instantiate-as-a-child-of-the-parent.html
-            newInstance.GetComponent<InventorySlot>().StoreInformation(names[i], types[i], sprites[i]);
+            newInstance.GetComponent<InventorySlot>().StoreInformation(names[i], types[i], sprites[i], indexes[i]);
             newInstance.GetComponent<InventorySlot>().AddItem(sprites[i]);
         }
     }
