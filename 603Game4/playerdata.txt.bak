@@ -2,7 +2,7 @@
     "collectedRocks": [
         false,
         false,
-        true,
+        false,
         false,
         false,
         false,
@@ -29,7 +29,7 @@
         true,
         false
     ],
-    "currentRock": 2,
+    "currentRock": -1,
     "hat": -1,
     "face": -1,
     "neck": -1,
