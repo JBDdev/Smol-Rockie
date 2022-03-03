@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 1654152191}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!114 &32706470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uI: {fileID: 1654152191}
   gM: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!114 &98275367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,6 +1605,10 @@ PrefabInstance:
       propertyPath: uI
       value: 
       objectReference: {fileID: 1654152191}
+    - target: {fileID: 6602793990298783831, guid: dd55ae2893a4340bbb6d5b531ca3e1c1, type: 3}
+      propertyPath: cIM
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8329979147442023160, guid: dd55ae2893a4340bbb6d5b531ca3e1c1, type: 3}
       propertyPath: uI
       value: 

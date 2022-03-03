@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CustomizeInventoryManager : MonoBehaviour
 {
@@ -11,11 +12,9 @@ public class CustomizeInventoryManager : MonoBehaviour
     private Collection c;
     private CosmeticsData cData;
 
-    private bool didOnce;
-
-    [SerializeField] private static List<string> names;
-    [SerializeField] private static List<Sprite> sprites;
-    [SerializeField] private static List<string> types;
+    [SerializeField] private List<string> names;
+    [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private List<string> types;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,27 @@ public class CustomizeInventoryManager : MonoBehaviour
         c = collection.GetComponent<Collection>();
         cData = collection.GetComponent<CosmeticsData>();
 
-        didOnce = false;
+        names = new List<string>();
+        sprites = new List<Sprite>();
+        types = new List<string>();
+
+        Invoke("UpdateUI", .5f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        c = collection.GetComponent<Collection>();
+        cData = collection.GetComponent<CosmeticsData>();
+
+        sprites.Clear();
+        types.Clear();
+        names.Clear();
 
         // Checking which 5 star cosmetics we currently have
         for (int i = 0; i < c.data.fiveStarCos.Length; i++)
@@ -56,37 +75,11 @@ public class CustomizeInventoryManager : MonoBehaviour
             }
         }
 
-        UpdateUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateUI();
-    }
-
-    public void UpdateUI()
-    {
         for (int i = 0; i < sprites.Count; i++)
         {
             GameObject newInstance = Instantiate(slotPrefab, inventory.transform); // From Denaton - https://answers.unity.com/questions/260100/instantiate-as-a-child-of-the-parent.html
             newInstance.GetComponent<InventorySlot>().StoreInformation(names[i], types[i], sprites[i]);
             newInstance.GetComponent<InventorySlot>().AddItem(sprites[i]);
         }
-
-    }
-
-    public void AddFourStar(int index)
-    {
-        sprites.Add(cData.fourStarSprites[index]);
-        types.Add(cData.fourStarTypes[index]);
-        names.Add(cData.fourStarNames[index]);
-    }
-
-    public void AddFiveStar(int index)
-    {
-        sprites.Add(cData.fiveStarSprites[index]);
-        types.Add(cData.fiveStarTypes[index]);
-        names.Add(cData.fiveStarNames[index]);
     }
 }
