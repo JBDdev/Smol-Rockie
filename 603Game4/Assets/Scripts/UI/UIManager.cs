@@ -132,6 +132,10 @@ public class UIManager : MonoBehaviour
             currentMenuState = MenuState.RockChange;
             ShowMenu(rockChangeObjects);
         }
+        else if (currentMenuState == MenuState.RockChange && menuState == MenuState.RockChange)
+        {
+            return;
+        }
         // If in rock change, go back to game
         else if (currentMenuState == MenuState.RockChange && menuState == MenuState.Game)
         {
