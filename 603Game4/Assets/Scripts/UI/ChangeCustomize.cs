@@ -13,6 +13,7 @@ public class ChangeCustomize : MonoBehaviour
 
     public void Start()
     {
+        rockPrefab = GameObject.Find("Rock");
         hat = rockPrefab.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         face = rockPrefab.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         neck = rockPrefab.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
