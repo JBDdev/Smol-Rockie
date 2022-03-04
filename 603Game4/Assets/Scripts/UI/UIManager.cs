@@ -46,7 +46,10 @@ public class UIManager : MonoBehaviour
         HideMenu(inventoryObjects);
         HideMenu(rockChangeObjects);
 
-        rockNumCount.text = "Rocks Owned: " + CurrencyManager.playerNumOfRockCosmetics;
+        if (rockNumCount != null)
+        {
+            rockNumCount.text = "Rocks Owned: " + CurrencyManager.playerNumOfRockCosmetics;
+        }
     }
 
     // Update is called once per frame

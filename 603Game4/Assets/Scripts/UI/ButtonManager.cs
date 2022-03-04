@@ -11,6 +11,16 @@ public class ButtonManager : MonoBehaviour
     [Tooltip("Game Manager")][SerializeField] private GameObject gM;
     [Tooltip("Shop Menu Manager")][SerializeField] private GameObject sM;
 
+    private Collection collectionScript;
+    private RockData rockScript;
+
+    public void Start()
+    {
+        GameObject gameData = GameObject.Find("GameData");
+        collectionScript = gameData.GetComponent<Collection>();
+        rockScript = gameData.GetComponent<RockData>();
+    }
+
     //---------GENERAL BUTTONS---------
 
     public void OnStart()
@@ -101,26 +111,57 @@ public class ButtonManager : MonoBehaviour
     //---------SHOP BUTTONS---------
     public void OnConvert()
     {
+        sM.GetComponent<ShopMenuManager>().numToGain = -5;
         Debug.Log("Clicked Convert");
         sM.GetComponent<ShopMenuManager>().ButtonPress("convert");
     }
 
-    public void OnPurchase()
+    public void OnPurchase(int gain)
     {
         Debug.Log("Clicked Purchase");
+        sM.GetComponent<ShopMenuManager>().numToGain = gain;
         sM.GetComponent<ShopMenuManager>().ButtonPress("purchase");
     }
 
     public void OnCancel()
     {
+        sM.GetComponent<ShopMenuManager>().numToGain = 0;
         Debug.Log("Clicked Cancel");
         sM.GetComponent<ShopMenuManager>().ButtonPress("cancel");
     }
 
     public void OnConfirm()
     {
+        //If Erika Rock
+        if (sM.GetComponent<ShopMenuManager>().numToGain == -100)
+        {
+            int index = 0;
+            for (int i = 0; i < rockScript.rockNames.Count; i++)
+            {
+                if (rockScript.rockNames[i] == "Erika")
+                {
+                    index = i;
+                }
+            }
+
+            CurrencyManager.playerNumOfRockCosmetics++;
+
+            collectionScript.data.collectedRocks[index] = true;
+
+            collectionScript.UpdateFile();
+        }
+        //If Converting
+        else if(sM.GetComponent<ShopMenuManager>().numToGain == -5)
+        {
+            CurrencyManager.playerNumOfRockCurrency += 100;
+        }
+
+        CurrencyManager.playerNumOfPremiumCurrency += sM.GetComponent<ShopMenuManager>().numToGain;
+
         Debug.Log("Clicked Confirm");
         sM.GetComponent<ShopMenuManager>().ButtonPress("confirm");
+
+        sM.GetComponent<ShopMenuManager>().numToGain = 0;
     }
 
     public void OnOkay()

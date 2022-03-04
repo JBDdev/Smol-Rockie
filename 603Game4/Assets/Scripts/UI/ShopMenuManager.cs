@@ -19,6 +19,8 @@ public class ShopMenuManager : MonoBehaviour
 
     public ShopMenuState currentShopMenuState = ShopMenuState.Game;
 
+    public int numToGain = 0;
+
     // Start is called before the first frame update
     void Start()
     {

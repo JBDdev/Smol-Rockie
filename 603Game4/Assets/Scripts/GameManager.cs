@@ -99,46 +99,45 @@ public class GameManager : MonoBehaviour
         GameObject gameData = GameObject.Find("GameData");
         GameObject rockieParent = GameObject.Find("Rockie");
 
-        GameObject rockie = Instantiate(gameData.GetComponent<RockData>().rockPrefabs[gameData.GetComponent<Collection>().data.currentRock], rockieParent.transform);
-
-        if (gameData.GetComponent<Collection>().data.hat != -1) 
+        if (rockieParent != null)
         {
-             if (gameData.GetComponent<Collection>().data.hat < gameData.GetComponent<CosmeticsData>().NumFourStars)
+            GameObject rockie = Instantiate(gameData.GetComponent<RockData>().rockPrefabs[gameData.GetComponent<Collection>().data.currentRock], rockieParent.transform);
+
+            if (gameData.GetComponent<Collection>().data.hat != -1)
             {
-                rockie.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fourStarSprites[gameData.GetComponent<Collection>().data.hat];
+                if (gameData.GetComponent<Collection>().data.hat < gameData.GetComponent<CosmeticsData>().NumFourStars)
+                {
+                    rockie.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fourStarSprites[gameData.GetComponent<Collection>().data.hat];
+                }
+                else
+                {
+                    rockie.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fiveStarSprites[gameData.GetComponent<Collection>().data.hat - gameData.GetComponent<CosmeticsData>().NumFourStars];
+                }
             }
-            else 
+
+            if (gameData.GetComponent<Collection>().data.face != -1)
             {
-                rockie.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fiveStarSprites[gameData.GetComponent<Collection>().data.hat - gameData.GetComponent<CosmeticsData>().NumFourStars];
+                if (gameData.GetComponent<Collection>().data.face < gameData.GetComponent<CosmeticsData>().NumFourStars)
+                {
+                    rockie.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fourStarSprites[gameData.GetComponent<Collection>().data.face];
+                }
+                else
+                {
+                    rockie.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fiveStarSprites[gameData.GetComponent<Collection>().data.face - gameData.GetComponent<CosmeticsData>().NumFourStars];
+                }
+            }
+
+            if (gameData.GetComponent<Collection>().data.neck != -1)
+            {
+                if (gameData.GetComponent<Collection>().data.neck < gameData.GetComponent<CosmeticsData>().NumFourStars)
+                {
+                    rockie.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fourStarSprites[gameData.GetComponent<Collection>().data.neck];
+                }
+                else
+                {
+                    rockie.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fiveStarSprites[gameData.GetComponent<Collection>().data.neck - gameData.GetComponent<CosmeticsData>().NumFourStars];
+                }
             }
         }
-
-        if (gameData.GetComponent<Collection>().data.face != -1)
-        {
-            if (gameData.GetComponent<Collection>().data.face < gameData.GetComponent<CosmeticsData>().NumFourStars)
-            {
-                rockie.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fourStarSprites[gameData.GetComponent<Collection>().data.face];
-            }
-            else
-            {
-                rockie.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fiveStarSprites[gameData.GetComponent<Collection>().data.face - gameData.GetComponent<CosmeticsData>().NumFourStars];
-            }
-        }
-
-        if (gameData.GetComponent<Collection>().data.neck != -1)
-        {
-            if (gameData.GetComponent<Collection>().data.neck < gameData.GetComponent<CosmeticsData>().NumFourStars)
-            {
-                rockie.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fourStarSprites[gameData.GetComponent<Collection>().data.neck];
-            }
-            else
-            {
-                rockie.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = gameData.GetComponent<CosmeticsData>().fiveStarSprites[gameData.GetComponent<Collection>().data.neck - gameData.GetComponent<CosmeticsData>().NumFourStars];
-            }
-        }
-
-
-
-
     }
 }
