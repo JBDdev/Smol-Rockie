@@ -32,6 +32,8 @@ public class Collection : MonoBehaviour
             }
                
             data = JsonUtility.FromJson<CollectionData>(output);
+
+            CurrencyManager.SetUp(data.money, data.premiumMoney, data.rockScore);
         }
     }
 
@@ -45,6 +47,10 @@ public class Collection : MonoBehaviour
     // This function should be called whenever updates to the player's collection (i.e. gained currency, new item from gacha pull, etc.)
     public void UpdateFile()
     {
+        data.money = CurrencyManager.playerNumOfRockCurrency;
+        data.premiumMoney = CurrencyManager.playerNumOfPremiumCurrency;
+        data.rockScore = CurrencyManager.playerNumOfRockCosmetics;
+
         string output = JsonUtility.ToJson(data, true);
 
         //Write values to file
@@ -93,4 +99,5 @@ public class CollectionData
     [Header("Resources")]
     public int money;
     public int premiumMoney;
+    public int rockScore;
 }

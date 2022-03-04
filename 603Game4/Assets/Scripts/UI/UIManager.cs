@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] optionObjects;
     [SerializeField] private GameObject[] inventoryObjects;
     [SerializeField] private GameObject[] rockChangeObjects;
+    [SerializeField] private Text rockNumCount;
 
     public MenuState currentMenuState = MenuState.Game;
 
@@ -44,6 +45,8 @@ public class UIManager : MonoBehaviour
         HideMenu(optionObjects);
         HideMenu(inventoryObjects);
         HideMenu(rockChangeObjects);
+
+        rockNumCount.text = "Rocks Owned: " + CurrencyManager.playerNumOfRockCosmetics;
     }
 
     // Update is called once per frame

@@ -6,14 +6,14 @@
         false,
         false,
         false,
-        false,
+        true,
         false,
         false,
         false
     ],
     "fourStarCos": [
         false,
-        false,
+        true,
         false,
         false,
         false,
@@ -32,10 +32,11 @@
         false,
         false
     ],
-    "currentRock": 2,
+    "currentRock": 6,
     "hat": -1,
     "face": -1,
     "neck": -1,
-    "money": 0,
-    "premiumMoney": 0
+    "money": 5925,
+    "premiumMoney": 0,
+    "rockScore": 3
 }

@@ -127,6 +127,31 @@ public class GachaScript : MonoBehaviour
         isPulling = true;
 
         CurrencyManager.playerNumOfRockCurrency -= numOfRocksForPull;
+
+        bool temp = false;
+
+        for (int i = 0; i < collectionScript.data.fourStarCos.Length; i++)
+        {
+            if (collectionScript.data.fourStarCos[i])
+            {
+                temp = true;
+            }
+        }
+
+        if (!temp)
+        {
+            colorIndex = 3;
+            fourStarCounter = 0;
+
+            //Spawn Visual Trail
+            trail = Instantiate(trailPrefab);
+
+            path = trail.GetComponent<DOTweenPath>();
+            path.tween.OnWaypointChange(ChangeTrailColor).OnComplete(GiveReward);
+            return;
+        }
+    
+
         float chance = 0;
 
         if (fiveStarCounter >= fiveStarPityThreshold)
@@ -189,7 +214,7 @@ public class GachaScript : MonoBehaviour
     /// Gives the reward to the player after the trail is complete
     /// </summary>
     public void GiveReward()
-    {
+    { 
         switch (colorIndex)
         {
             //One Star
@@ -274,6 +299,8 @@ public class GachaScript : MonoBehaviour
                     int index5 = Random.Range(0, rockScript.NumRocks - 1);
                     string temp5 = rockScript.rockNames[index5];
 
+                    CurrencyManager.playerNumOfRockCosmetics++;
+
                     Debug.Log(temp5);
 
                     if (collectionScript.data.collectedRocks[index5] == true)
@@ -308,12 +335,11 @@ public class GachaScript : MonoBehaviour
     public IEnumerator showRewardImage()
     {
         GameObject temp = Instantiate(rewardToSpawn);
+        collectionScript.UpdateFile();
         yield return new WaitForSeconds(rewardDisplayTime);
         Destroy(temp);
         Destroy(trail);
         isPulling = false;
-
-        collectionScript.UpdateFile();
     }
 
 
@@ -358,6 +384,8 @@ public class GachaScript : MonoBehaviour
                 index = i;
             }
         }
+
+        CurrencyManager.playerNumOfRockCosmetics++;
 
         if (collectionScript.data.collectedRocks[index] == true)
         {
